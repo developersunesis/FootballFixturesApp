@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">FootballApp</string>
+    <string name="football_icon">Football Icon</string>
+    <string name="football_pitch_icon">Football pitch icon</string>
+    <string name="no_data_available">No data available</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="empty">No data present!</string>
+    <string name="refreshing">Refreshing data…</string>
+    <string name="finished">Finished</string>
+    <string name="_19_00">19:00</string>
+    <string name="md_35">MD : 35</string>
+    <string name="club_1">Club 1</string>
+    <string name="club_2">Club 2</string>
+    <string name="_00">00</string>
+    <string name="_1">1</string>
+    <string name="_0">0</string>
+    <string name="today_s_fixtures">Today\'s Fixtures</string>
+    <string name="competitions">Competitions</string>
+    <string name="tab_text_1">Tables</string>
+    <string name="tab_text_2">Fixtures</string>
+    <string name="tab_text_3">Teams</string>
+    <string name="barcelona">Barcelona</string>
+    <string name="no_fixtures">No Fixtures</string>
+</resources>
