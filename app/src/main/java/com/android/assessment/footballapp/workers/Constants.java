@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. Emmanuel Uche
+ * Copyright (c) 2019.
  */
 
 package com.android.assessment.footballapp.workers;
