@@ -4,7 +4,7 @@ Android Football Fixtures app that consumes fixtures data from https://www.footb
 # Database
 Room used!
 
-#Tests
+# Tests
 Espresso && JUnits
 
 # Resources
