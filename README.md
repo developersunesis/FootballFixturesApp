@@ -1,6 +1,7 @@
 # FootballFixturesApp
 Android Football Fixtures app that consumes fixtures data from https://www.football-data.org
-
+<img src="device-2019-08-08-094637.png" width="50%" height="50%"/>
+<img src="device-2019-08-19-204156.png" width="50%" height="50%"/>
 # Database
 Room used!
 
@@ -10,10 +11,7 @@ Espresso && JUnits
 # Resources
 Most of the icons can be found on https://materialdesignicons.com/
 
-
-# App Walkthrough
-See [Here](https://media.giphy.com/media/fjxPP7s7aQBVurpiJg/giphy.gif) and [Here](https://media.giphy.com/media/WgQrj8VE8Emuxv3Xhu/giphy.gif)
-
+# Setup
 Obtain your API KEY from https://www.football-data.org for free and update Constants.java
 
 ```
@@ -32,3 +30,4 @@ public class Constants {
 }
 
 ```
+Goodluck!!
