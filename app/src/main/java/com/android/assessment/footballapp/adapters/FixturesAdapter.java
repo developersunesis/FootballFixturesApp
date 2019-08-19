@@ -1,22 +1,26 @@
+/*
+ * Copyright (c) 2019. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
 package com.android.assessment.footballapp.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.assessment.footballapp.R;
 import com.android.assessment.footballapp.models.FixtureModel;
 
 import java.text.MessageFormat;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 public class FixturesAdapter extends BaseAdapter {
@@ -46,7 +50,7 @@ public class FixturesAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View rowView = context.getLayoutInflater().inflate(R.layout.today_fixture_item, null);
+        @SuppressLint("ViewHolder") View rowView = context.getLayoutInflater().inflate(R.layout.today_fixture_item, null);
         FixtureModel model = data.get(i);
 
         TextView status = rowView.findViewById(R.id.status);
@@ -60,7 +64,7 @@ public class FixturesAdapter extends BaseAdapter {
 
         status.setText(model.getStatus());
         utcTime.setText(formatUTCTime(model.getUtcTime()));
-        matchDay.setText(MessageFormat.format("MD : {0}", model.getMatchDay()));
+        matchDay.setText(MessageFormat.format("MD : {0}", (model.getMatchDay() != 0) ? model.getMatchDay() : "-"));
         club1.setText(model.getHomeTeamName());
         club2.setText(model.getAwayTeamName());
 

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Emmanuel Uche
+ */
+
 package com.android.assessment.footballapp.workers;
 
 public class Constants {
@@ -18,5 +22,7 @@ public class Constants {
     public static final String ID = "id";
     public static final String COUNT = "count";
     public static final String TITLE = "title";
-    public static final String COMPETITION_ID = "competition_id";
+
+    /*Replace with your api_key obtained */
+    static final String API_KEY = "YOUR_API_KEY";
 }

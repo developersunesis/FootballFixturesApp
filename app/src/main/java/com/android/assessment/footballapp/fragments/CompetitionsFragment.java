@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2019. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
 package com.android.assessment.footballapp.fragments;
 
 import android.content.Intent;
@@ -63,6 +71,7 @@ import static com.android.assessment.footballapp.workers.Constants.UTC_DATE;
 public class CompetitionsFragment extends Fragment {
 
 
+    //Assign variables ranging from views, retrofit, apiworker
     private TextView empty;
     private ListView listView;
     private LinearLayout emptyLinearLayout;
@@ -79,7 +88,6 @@ public class CompetitionsFragment extends Fragment {
     private ArrayList<Integer> competitionIds = new ArrayList<>();
     private List<String> competitions = new ArrayList<>();
 
-    private int mLastFirstVisibleItem;
 
     public CompetitionsFragment() {
         // Required empty public constructor
@@ -118,6 +126,8 @@ public class CompetitionsFragment extends Fragment {
             }
         });
 
+
+        //Retry button to retry api call if recently failed
         retry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,6 +149,7 @@ public class CompetitionsFragment extends Fragment {
 
                     @Override
                     public void onFailure(Call<String> call, Throwable t) {
+                        Toast.makeText(getActivity(), "Unable to connect!\nPlease check that you have an active internet connection", Toast.LENGTH_SHORT).show();
                         emptyLinearLayout.setVisibility(View.VISIBLE);
                         empty.setText(R.string.empty);
                         retry.setVisibility(View.VISIBLE);
@@ -179,6 +190,7 @@ public class CompetitionsFragment extends Fragment {
         return rootView;
     }
 
+    //populate the competition ListView
     private void populateCompetitions(String data){
         if(data != null) {
 

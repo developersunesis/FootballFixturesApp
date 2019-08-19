@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2019. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
 package com.android.assessment.footballapp.fragments;
 
 import android.content.Context;
@@ -22,6 +30,7 @@ import android.widget.Toast;
 import com.android.assessment.footballapp.R;
 import com.android.assessment.footballapp.adapters.FixturesAdapter;
 import com.android.assessment.footballapp.adapters.MyViewPagerAdapter;
+import com.android.assessment.footballapp.database.AppDatabaseClient;
 import com.android.assessment.footballapp.models.FixtureModel;
 import com.android.assessment.footballapp.models.ScrollState;
 import com.android.assessment.footballapp.workers.ApiWorker;
@@ -61,7 +70,7 @@ import static com.android.assessment.footballapp.workers.Constants.UTC_DATE;
  */
 public class FixturesFragment extends Fragment {
 
-
+    //Assign variables ranging from views, retrofit, apiworker
     private TextView empty;
     private ListView listView;
     private LinearLayout emptyLinearLayout;
@@ -89,7 +98,8 @@ public class FixturesFragment extends Fragment {
         emptyLinearLayout = rootView.findViewById(R.id.emptyLayout);
         retry = rootView.findViewById(R.id.retry);
 
-        Call<String> fixtureModelCall = apiWorker.obtainTodaysFixtures("2018-08-23", "2018-08-23");
+        //Obtains fixtures between 2 dates
+        Call<String> fixtureModelCall = apiWorker.obtainTodaysFixtures("2018-08-13", "2018-08-23");
         fixtureModelCall.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
@@ -117,7 +127,7 @@ public class FixturesFragment extends Fragment {
                 retry.setEnabled(false);
                 empty.setText(R.string.refreshing);
 
-                Call<String>  fixtureModelCall = apiWorker.obtainTodaysFixtures("2018-08-23", "2018-08-23");
+                Call<String>  fixtureModelCall = apiWorker.obtainTodaysFixtures("2018-08-13", "2018-08-23");
                 fixtureModelCall.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
@@ -132,6 +142,7 @@ public class FixturesFragment extends Fragment {
 
                     @Override
                     public void onFailure(Call<String> call, Throwable t) {
+                        Toast.makeText(getActivity(), "Unable to connect!\nPlease check that you have an active internet connection", Toast.LENGTH_SHORT).show();
                         emptyLinearLayout.setVisibility(View.VISIBLE);
                         empty.setText(R.string.empty);
                         retry.setVisibility(View.VISIBLE);
@@ -182,7 +193,10 @@ public class FixturesFragment extends Fragment {
                     model.setStatus(object.getString(STATUS));
                     model.setHomeTeamName(object.getJSONObject(HOME_TEAM).getString(NAME));
                     model.setAwayTeamName(object.getJSONObject(AWAY_TEAM).getString(NAME));
-                    model.setMatchDay(Integer.parseInt(object.getString(MATCH_DAY)));
+
+                    String md = object.getString(MATCH_DAY);
+
+                    model.setMatchDay((!md.equals("null")) ? Integer.parseInt(object.getString(MATCH_DAY)) : 0);
                     model.setUtcTime(object.getString(UTC_DATE));
                     model.setHomeTeamScore(obtainCurrentScore(object, HOME_TEAM));
                     model.setAwayTeamScore(obtainCurrentScore(object, AWAY_TEAM));

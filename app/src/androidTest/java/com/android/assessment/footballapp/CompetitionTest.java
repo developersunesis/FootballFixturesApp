@@ -5,6 +5,7 @@
  * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
+
 package com.android.assessment.footballapp;
 
 import androidx.test.rule.ActivityTestRule;
@@ -14,24 +15,26 @@ import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.swipeLeft;
 import static androidx.test.espresso.action.ViewActions.swipeRight;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static org.junit.Assert.*;
 
-public class MainActivityTest {
+public class CompetitionTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> mainActivityTestRule =
-            new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<Competition> mainActivityTestRule =
+            new ActivityTestRule<>(Competition.class);
 
 
     @Test
     public void onCreate() {
-        onView(withId(R.id.viewPager));
-        onView(withId(R.id.fixtures));
-        onView(withId(R.id.competitions));
+        onView(withId(R.id.title));
+        onView(withId(R.id.view_pager));
 
-        //Test the ViewPager swipe and ImageButtons
-        onView(withId(R.id.competitions)).perform(click());
-        onView(withId(R.id.viewPager)).perform(swipeRight());
+        //Test the ViewPager swipe
+        onView(withId(R.id.view_pager)).perform(swipeLeft());
+        onView(withId(R.id.view_pager)).perform(swipeLeft());
+        onView(withId(R.id.view_pager)).perform(swipeLeft());
     }
 }
