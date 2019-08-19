@@ -1,4 +1,4 @@
-# FootballFixturesApp
+# Football Fixtures App
 Android Football Fixtures app that consumes fixtures data from https://www.football-data.org
 <img src="device-2019-08-19-203855.png" width="50%" height="50%"/>
 
