@@ -1,6 +1,5 @@
 # FootballFixturesApp
 Android Football Fixtures app that consumes fixtures data from https://www.football-data.org
-
 <img src="device-2019-08-19-203855.png" width="50%" height="50%"/>
 
 <img src="device-2019-08-19-204156.png" width="50%" height="50%"/>
@@ -33,4 +32,5 @@ public class Constants {
 }
 
 ```
+APK-> app/release/
 Goodluck!!
