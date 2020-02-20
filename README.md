@@ -35,5 +35,6 @@ public class Constants {
 
 # ...
 APK-> app/release/
+<a href="/app/release/app-release.apk">Download Apk</a>
 <br/>
 Goodluck!!
